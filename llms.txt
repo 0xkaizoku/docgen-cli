@@ -1,0 +1,92 @@
+# docgen-cli
+
+> Sub-millisecond zero-dependency universal document engine (PDF, DOCX, XLSX, HTML), CLI tool, Rust library, and MCP server.
+
+`docgen-cli` (invoked as `docgen`, `doc`, or `docgen-cli`) converts Markdown, JSON, CSV, TSV, plain text, and terminal command outputs into styled Word (`.docx`), Excel (`.xlsx`), HTML (`.html`), and vector PDF (`.pdf`) documents in 1–4 milliseconds with zero external runtime dependencies.
+
+## Key Information
+
+- **Repository**: https://github.com/0xkaizoku/docgen-cli
+- **Author**: Kaizoku (@0xkaizoku)
+- **Primary Binary Name**: `docgen` (aliases: `doc`, `docgen-cli`)
+- **Rust Crate Name**: `docgen_cli`
+- **License**: Docgen-CLI Protective Free-Use License (Free for personal/commercial use; cloning/rebranding prohibited)
+- **Runtime Dependencies**: Zero (0) external dependencies (no Python, no Node.js, no LibreOffice)
+- **Execution Speed**: 1ms – 4ms per document generation
+- **Memory Footprint**: ~12 MB peak RAM during rendering
+
+## Quick CLI Usage
+
+```bash
+# Convert Markdown to Word document (.docx) in 1ms
+docgen convert spec.md -o spec.docx --theme tech-spec
+
+# Convert JSON array to Excel spreadsheet (.xlsx) in 1ms
+docgen convert sales_data.json -o sales_q3.xlsx
+
+# Convert CSV / TSV to Excel spreadsheet
+docgen convert metrics.csv -o metrics.xlsx
+
+# Convert Markdown to styled HTML preview
+docgen convert article.md -o preview.html --theme minimal-paper
+
+# Generate vector PDF document
+docgen convert report.md -o report.pdf --theme modern-executive
+
+# Convert inline text directly without creating files
+docgen convert --text "# Server Outage\nResolved at 22:45." -o report.docx
+
+# Pipe terminal command output directly into a document
+git log -n 25 --oneline | docgen convert - -o changelog.docx
+curl -s https://api.example.com/data | docgen convert - -o data.xlsx
+ps aux | head -n 30 | docgen convert - -o processes.xlsx
+
+# List all available built-in design themes
+docgen list-templates
+```
+
+## Built-in Themes
+
+- `modern-executive` *(Default)*: Royal blue accent, crisp sans-serif typography, clean table borders. Best for executive summaries, business proposals, and memos.
+- `tech-spec`: JetBrains Mono headers, cyan accents, dark code blocks. Best for RFCs, architecture specs, and API documentation.
+- `minimal-paper`: Editorial serif typography, cream background. Best for academic research, essays, and articles.
+- `corporate-slate`: Deep navy headers, structured borders, high information density. Best for financial spreadsheets, audits, and contracts.
+- `dark-glass`: Dark glassmorphism, glowing accents, syntax highlighting. Best for modern web docs and developer previews.
+
+## Programmatic Rust Crate API (`docgen_cli`)
+
+```rust
+use docgen_cli::{convert_document, OutputFormat, Theme};
+use std::path::Path;
+
+fn main() -> anyhow::Result<()> {
+    let markdown = "# System Status\nAll 14 services operational.";
+    let res = convert_document(
+        markdown,
+        Path::new("status.docx"),
+        Some(OutputFormat::Docx),
+        Theme::ModernExecutive,
+        Some("Status Report".to_string()),
+        Some("Platform Team".to_string()),
+    )?;
+    println!("Generated in {}ms", res.duration_ms);
+    Ok(())
+}
+```
+
+## MCP (Model Context Protocol) Server for AI Tools
+
+`docgen-cli` includes a native stdio MCP server for Claude Code, Grok CLI, Cursor, Windsurf, and Codex.
+
+- Run MCP server: `docgen mcp`
+- Auto-configure local AI tools: `docgen init-ai`
+- Tool `doc_convert`: Converts input markdown/json text to target file path.
+- Tool `doc_list_themes`: Returns available design themes.
+
+## Documentation Index
+
+- [CLI User Guide](docs/CLI_GUIDE.md): Full command options, pipes, and scripting reference.
+- [Rust Library Guide](docs/LIBRARY_GUIDE.md): Programmatic crate API and Axum/Actix web handlers.
+- [MCP Server Guide](docs/MCP_GUIDE.md): Model Context Protocol setup and tool schemas.
+- [Theme Catalog](docs/THEMES.md): Visual design specifications and CSS styling.
+- [Performance Benchmarks](docs/BENCHMARKS.md): Latency, memory footprint, and token savings breakdown.

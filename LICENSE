@@ -1,0 +1,38 @@
+DOCGEN-CLI PROTECTIVE FREE-USE LICENSE
+
+Copyright (c) 2026 Kaizoku (@0xkaizoku)
+Repository: https://github.com/0xkaizoku/docgen-cli
+
+================================================================================
+TERMS AND CONDITIONS FOR USE AND DISTRIBUTION
+================================================================================
+
+1. GRANT OF LICENSE (FREE TO USE):
+   Permission is hereby granted, free of charge, to any person or entity obtaining
+   a copy of this software and associated documentation files (the "Software"),
+   to use, run, and execute the Software without restriction for personal, academic,
+   internal business, and commercial document generation purposes.
+
+2. RESTRICTIONS ON COPYING, CLONING, AND REDISTRIBUTION:
+   Notwithstanding Section 1, the following actions are STRICTLY PROHIBITED
+   without prior express written permission from the copyright holder:
+   
+   a. You may NOT copy, replicate, rebrand, sub-license, sell, rent, or distribute
+      clones or substantially similar derivative works of this Software or its source code.
+   b. You may NOT publish or host copies of this source code or binary packages
+      under a different name, author, or organization.
+   c. You may NOT extract, reverse engineer, or incorporate substantial portions
+      of this source code into a competing product, service, or repository.
+
+3. ATTRIBUTION:
+   All copies of the Software, output templates, or documentation must retain
+   the above copyright notice and this permission notice.
+
+4. NO WARRANTY:
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   SOFTWARE.

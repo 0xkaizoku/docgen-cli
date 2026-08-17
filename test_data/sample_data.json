@@ -1,0 +1,8 @@
+[
+  { "ID": 1001, "Project": "Apollo Cloud", "Category": "Infrastructure", "Quarter": "Q1", "Budget": 150000, "Status": "Completed" },
+  { "ID": 1002, "Project": "Hermes Engine", "Category": "AI Acceleration", "Quarter": "Q1", "Budget": 280000, "Status": "Completed" },
+  { "ID": 1003, "Project": "Atlas Database", "Category": "Storage", "Quarter": "Q2", "Budget": 420000, "Status": "Completed" },
+  { "ID": 1004, "Project": "Titan CLI", "Category": "Developer Tools", "Quarter": "Q2", "Budget": 95000, "Status": "In Progress" },
+  { "ID": 1005, "Project": "cli-doc Engine", "Category": "Document AI", "Quarter": "Q3", "Budget": 180000, "Status": "Active" },
+  { "ID": 1006, "Project": "Zeus Gateway", "Category": "Networking", "Quarter": "Q3", "Budget": 310000, "Status": "Planned" }
+]

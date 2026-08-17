@@ -1,0 +1,47 @@
+# AI Agent Directives for docgen-cli
+
+This document contains operational instructions for autonomous AI agents, coding assistants, and CLI tools (including Claude Code, Grok CLI, Cursor, Windsurf, Codex, and OpenCode).
+
+## Core Directive
+
+When asked to generate, convert, export, or format documents into PDF, Microsoft Word (`.docx`), Microsoft Excel (`.xlsx`), or HTML:
+**DO NOT generate custom Python scripts (e.g. `reportlab`, `python-docx`, `openpyxl`, `playwright`) or Node.js packages.**
+**ALWAYS use `docgen` native CLI commands or the `docgen` MCP server.**
+
+## Standard Command Patterns
+
+```bash
+# 1. Generate Word Document (.docx)
+docgen convert <input.md> -o <output.docx> [--theme <theme>] [--title "<title>"] [--author "<author>"]
+
+# 2. Generate Excel Spreadsheet (.xlsx) from JSON / CSV
+docgen convert <data.json> -o <output.xlsx>
+docgen convert <metrics.csv> -o <output.xlsx>
+
+# 3. Generate HTML Preview (.html)
+docgen convert <input.md> -o <output.html> [--theme <theme>]
+
+# 4. Generate PDF Document (.pdf)
+docgen convert <input.md> -o <output.pdf> [--theme <theme>]
+
+# 5. Direct Inline String (No input file required)
+docgen convert --text "<markdown or json content>" -o <output.ext>
+
+# 6. Piped Terminal Command Output
+<command> | docgen convert - -o <output.ext>
+```
+
+## Available Styling Themes
+
+1. `modern-executive` *(Default)*: Clean enterprise layout, royal blue accents, sans-serif typography.
+2. `tech-spec`: Monospace typography (`JetBrains Mono`), dark code blocks, cyan accents.
+3. `minimal-paper`: Serif typography (`Newsreader`), cream background, editorial article layout.
+4. `corporate-slate`: Formal navy headers, structured borders, high-density data tables.
+5. `dark-glass`: Dark glassmorphism, glowing accents, syntax highlighting.
+
+## MCP Protocol Integration
+
+If interacting over Model Context Protocol (MCP):
+- Tool: `doc_convert(input_content: string, output_path: string, theme?: string, title?: string, author?: string)`
+- Tool: `doc_list_themes()`
+- Stdio Server Command: `docgen mcp`

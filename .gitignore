@@ -1,0 +1,25 @@
+# Rust build artifacts
+/target/
+**/*.rs.bk
+
+# Generated test & benchmark documents
+*.pdf
+*.docx
+*.xlsx
+*.html
+!docs/**/*.html
+
+# OS and Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Local environment & secret files
+.env
+.env.local
